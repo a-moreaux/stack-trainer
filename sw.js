@@ -1,7 +1,7 @@
 // Offline support. The app is a single page plus its icons, so everything is cached on first
 // visit. Opening the app online always fetches the latest page (so updates arrive on the next
 // launch); offline, the cached copy is used.
-const VERSION = 'bd004db656b6';
+const VERSION = 'dbddbe089872';
 const CACHE = `cst-${VERSION}`;
 const FILES = ['./', './index.html', './manifest.webmanifest', './icon-180.png', './icon-192.png', './icon-512.png'];
 

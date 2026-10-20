@@ -269,9 +269,6 @@ h1, h2, h3, p { margin: 0; }
 }
 .fan.animate .fan-card { animation: fan-open 650ms cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: calc(var(--i) * 35ms); }
 @keyframes fan-open { from { transform: rotate(0deg) translateY(6px); } to { transform: rotate(var(--angle)); } }
-.hero-caption { font-size: 13px; color: var(--muted); }
-.hero-name { font-family: var(--font-card); font-size: 30px; font-weight: 600; margin: 6px 0 10px; letter-spacing: -0.01em; }
-.hero-text { color: var(--muted); max-width: 30ch; margin-bottom: 18px; }
 
 /* ---------- groups and rows ---------- */
 .group { margin-top: 26px; }
@@ -680,11 +677,6 @@ h1, h2, h3, p { margin: 0; }
   box-shadow: inset 0 0 0 2px var(--surface), inset 0 0 0 3px var(--back-line);
 }
 
-.flash-meta { display: flex; align-items: center; gap: 12px; margin-top: 14px; font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
-.flash-meta > span { flex: none; min-width: 64px; }
-.progress-track { flex: 1; height: 4px; border-radius: 2px; background: var(--surface-2); overflow: hidden; }
-.progress-fill { height: 100%; background: var(--accent); transition: width 0.25s; }
-
 .flash-panel {
   margin-top: 10px;
   padding: 16px 12px 14px;
@@ -718,15 +710,6 @@ h1, h2, h3, p { margin: 0; }
 .flip.revealed .flip-front { visibility: hidden; }
 .flip.animating .flip-back, .flip.animating .flip-front { transition: visibility 0s linear 0.2s; }
 
-.nb-row { display: flex; justify-content: space-between; gap: 8px; width: 100%; max-width: 340px; }
-.nb-row.concealed { visibility: hidden; }
-.nb { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--muted); }
-.nb-after { flex-direction: row-reverse; }
-.nb-label { font-size: 13px; }
-.nb-pos { font-family: var(--font-card); font-weight: 600; font-variant-numeric: tabular-nums; color: var(--text); }
-.nb .chip { font-size: 16px; min-width: 40px; padding: 2px 6px; }
-.nb-none { font-size: 13px; }
-
 .dock-actions { display: flex; gap: 10px; }
 .btn-grow { flex: 1; }
 .btn-square { width: 50px; padding: 0; flex: none; }
@@ -736,13 +719,11 @@ h1, h2, h3, p { margin: 0; }
 .row-locked { color: var(--muted); }
 .row-locked .icon { width: 18px; height: 18px; color: var(--muted); }
 .notice-top { margin-top: 14px; margin-bottom: 0; }
-.level-row { align-items: center; padding-top: 12px; padding-bottom: 12px; }
-.level-meter { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
+
 .meter-track { position: relative; flex: 1; height: 6px; border-radius: 3px; background: var(--surface-2); display: block; }
 .meter-fill { position: absolute; inset: 0 auto 0 0; border-radius: 3px; background: var(--accent); display: block; }
 .meter-fill.done { background: var(--ok); }
-.meter-mark { position: absolute; top: -3px; bottom: -3px; width: 2px; margin-left: -1px; background: var(--text); opacity: 0.55; border-radius: 1px; display: block; }
-.meter-text { flex: none; min-width: 92px; text-align: right; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
 .row-stacked .meter-track { flex: none; }
 
 /* ---------- quiz ---------- */
@@ -769,7 +750,7 @@ h1, h2, h3, p { margin: 0; }
 .timer.low .timer-fill { background: var(--warn); }
 
 .quiz-prompt { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 14px 0 8px; }
-.quiz-question { font-size: 17px; font-weight: 500; text-align: center; }
+
 .quiz-pair { display: flex; gap: 18px; align-items: center; }
 .card-lg.number-tile .number-tile-value { font-size: 46px; }
 .number-tile.unknown { background: none; box-shadow: none; border: 2px dashed var(--line); color: var(--muted); }
@@ -853,7 +834,6 @@ h1, h2, h3, p { margin: 0; }
 .stars-lg { gap: 8px; }
 .stars-lg .star { width: 52px; height: 52px; stroke-width: 0.9; }
 
-.category-summary { margin: 16px 4px 0; font-size: 15px; color: var(--muted); }
 .level-list { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; }
 .level-card { background: var(--surface); border-radius: var(--radius); padding: 14px 16px 16px; }
 .level-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
@@ -867,12 +847,7 @@ h1, h2, h3, p { margin: 0; }
 
 .is-challenge .timer { height: 8px; }
 .run-clock { font-size: 15px; font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums; }
-.run-strip { display: flex; gap: 3px; margin-top: 8px; }
-.run-strip span { flex: 1; height: 5px; border-radius: 2px; background: var(--surface-2); }
-.run-strip.dense { gap: 1px; }
-.run-strip .seg-ok { background: var(--ok); }
-.run-strip .seg-bad { background: var(--danger); }
-.run-strip .seg-now { background: var(--accent); }
+
 .quiz-feedback.compact { min-height: 20px; }
 
 .score .stars-lg { margin-bottom: 6px; }
@@ -890,7 +865,6 @@ h1, h2, h3, p { margin: 0; }
 .level-actions .btn-quiet { padding: 0 18px; }
 .btn-meta { display: inline-flex; align-items: center; gap: 3px; margin-left: 6px; font-weight: 500; opacity: 0.8; font-variant-numeric: tabular-nums; }
 .btn-meta .icon { width: 16px; height: 16px; }
-
 
 /* ---------- learn list columns (filled top to bottom, then left to right) ---------- */
 .study-list.cols-2, .study-list.cols-4 {
@@ -1019,18 +993,7 @@ h1, h2, h3, p { margin: 0; }
 .stack-check.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .stack-check .icon { width: 16px; height: 16px; stroke-width: 3; }
 .stack-name { font-size: 17px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.row-detail.pending { color: var(--warn); font-weight: 500; }
-.pending-bar {
-  flex-basis: 100%;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0 12px 12px 46px;
-  font-size: 14px;
-  color: var(--muted);
-}
-.pending-bar span { flex: 1; }
-.danger-text { color: var(--danger); }
+
 .group-count { font-size: 13px; color: var(--muted); padding-bottom: 8px; }
 .stack-button { gap: 6px; max-width: 90%; }
 .stack-button span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -1046,9 +1009,53 @@ h1, h2, h3, p { margin: 0; }
 }
 
 /* ---------- backup ---------- */
-.backup-text { min-height: 110px; margin-top: 14px; font-size: 13px; font-family: ui-monospace, Menlo, monospace; word-break: break-all; }
+.backup-text { min-height: 110px; margin-top: 14px; font-size: 16px; font-family: ui-monospace, Menlo, monospace; word-break: break-all; }
 .sheet-form .read-result { margin-top: 10px; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- 3-2-1 ---------- */
+.countdown-main { justify-content: center; align-items: center; gap: 10px; padding-bottom: 80px; }
+.countdown { display: grid; place-items: center; width: 160px; height: 160px; }
+.countdown-num {
+  font-family: var(--font-card);
+  font-size: 120px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--accent);
+  animation: count-in 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes count-in { from { transform: scale(1.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.countdown-label { font-size: 17px; color: var(--muted); }
+
+/* ---------- number pad ---------- */
+.keypad-wrap { display: flex; flex-direction: column; gap: 6px; }
+.pad-display { min-height: 22px; text-align: center; font-family: var(--font-card); font-size: 18px; color: var(--danger); }
+.keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.pad-key {
+  min-height: 54px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--face);
+  box-shadow: 0 0 0 1px var(--face-edge), 0 1px 2px rgba(0, 0, 0, 0.12);
+  color: var(--back);
+  font-family: var(--font-card);
+  font-size: 28px;
+  font-weight: 600;
+  display: grid;
+  place-items: center;
+  transition: transform 0.08s, opacity 0.15s;
+}
+.pad-key:active { transform: scale(0.96); }
+.pad-key:disabled { opacity: 0.35; }
+.pad-key .icon { width: 26px; height: 26px; stroke-width: 2.4; }
+.pad-ok { background: var(--accent); color: var(--accent-ink); box-shadow: none; }
+.pad-back { background: var(--surface-2); color: var(--text); box-shadow: none; }
+.number-tile.typing { box-shadow: 0 0 0 3px var(--accent), var(--shadow); }
+
+/* ---------- app feel: no text-selection pop-ups or callouts when tapping around ---------- */
+body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-select: text; -webkit-touch-callout: default; }
+.version { margin: 22px 0 4px; text-align: center; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
 </style>
 </head>
 <body>
@@ -1291,6 +1298,8 @@ h1, h2, h3, p { margin: 0; }
     // practice: when true, timeLimit is kept but not used
     choices: 4,
     // answer buttons per question, 3–6
+    positionInput: "choices",
+    // 'choices' = pick from buttons, 'keypad' = type the number
     wrongAnswer: "auto",
     // practice: 'auto' = continue by itself after a miss, 'tap' = wait for a tap
     cyclic: true,
@@ -1302,6 +1311,7 @@ h1, h2, h3, p { margin: 0; }
   var OPTIONS = Object.freeze({
     timeLimit: { min: 3, max: 30 },
     choices: [3, 4, 5, 6],
+    positionInput: ["choices", "keypad"],
     wrongAnswer: ["tap", "auto"],
     language: ["en", "fr"]
   });
@@ -1318,6 +1328,7 @@ h1, h2, h3, p { margin: 0; }
       timeLimit: clampInt(r.timeLimit, OPTIONS.timeLimit.min, OPTIONS.timeLimit.max, d.timeLimit),
       untimed: bool(r.untimed, d.untimed),
       choices: oneOf(r.choices, OPTIONS.choices, d.choices),
+      positionInput: oneOf(r.positionInput, OPTIONS.positionInput, d.positionInput),
       wrongAnswer: oneOf(r.wrongAnswer, OPTIONS.wrongAnswer, d.wrongAnswer),
       cyclic: true,
       haptics: bool(r.haptics, d.haptics),
@@ -1461,7 +1472,7 @@ h1, h2, h3, p { margin: 0; }
   }
 
   // src/core/library.js
-  var MAX_KEPT = 3;
+  var MAX_SAVED = 5;
   var BUILT_IN = [
     { id: "mnemonica", name: "Mnemonica", cards: MNEMONICA },
     { id: "aronson", name: "Aronson", cards: ARONSON }
@@ -1469,9 +1480,8 @@ h1, h2, h3, p { margin: 0; }
   var emptyLibrary = () => ({ active: null, custom: [], saved: {}, nextNum: 1 });
   var builtInById = (id) => BUILT_IN.find((b) => b.id === id) ?? null;
   var customById = (state, id) => state.library.custom.find((c) => c.id === id) ?? null;
-  var keptCount = (state) => state.library.custom.filter((c) => c.kept).length;
-  var pendingStack = (state) => state.library.custom.find((c) => !c.kept) ?? null;
-  var canKeepMore = (state) => keptCount(state) < MAX_KEPT;
+  var savedCount = (state) => state.library.custom.length;
+  var canAddCustom = (state) => savedCount(state) < MAX_SAVED;
   function cardsFor(state, id) {
     return builtInById(id)?.cards ?? customById(state, id)?.cards ?? null;
   }
@@ -1483,7 +1493,7 @@ h1, h2, h3, p { margin: 0; }
   function listStacks(state) {
     const { active } = state.library;
     return [
-      ...BUILT_IN.map((b) => ({ id: b.id, kind: "builtIn", name: b.name, cards: b.cards, kept: true, active: b.id === active })),
+      ...BUILT_IN.map((b) => ({ id: b.id, kind: "builtIn", name: b.name, cards: b.cards, active: b.id === active })),
       ...state.library.custom.map((c) => ({ ...c, kind: "custom", active: c.id === active }))
     ];
   }
@@ -1504,26 +1514,19 @@ h1, h2, h3, p { margin: 0; }
   }
   function addCustom(state, cards, extra = {}) {
     if (!isValidStack(cards)) throw new Error("Not a complete stack");
+    if (!canAddCustom(state)) return null;
     const lib = state.library;
     const id = `c${Date.now().toString(36)}${Math.floor(Math.random() * 1e4).toString(36)}`;
-    lib.custom.push({ id, name: null, num: lib.nextNum++, cards: cards.slice(), kept: false, createdAt: Date.now(), ...extra });
+    lib.custom.push({ id, name: null, num: lib.nextNum++, cards: cards.slice(), createdAt: Date.now(), ...extra });
     switchTo(state, id);
     return id;
-  }
-  function keep(state, id) {
-    const c = customById(state, id);
-    if (!c) return false;
-    if (c.kept) return true;
-    if (!canKeepMore(state)) return false;
-    c.kept = true;
-    return true;
   }
   function remove(state, id) {
     const lib = state.library;
     const i = lib.custom.findIndex((c) => c.id === id);
     if (i < 0) return;
     if (lib.active === id) {
-      const fallback = lib.custom.find((c) => c.id !== id && c.kept)?.id ?? "mnemonica";
+      const fallback = lib.custom.find((c) => c.id !== id)?.id ?? "mnemonica";
       switchTo(state, fallback);
     }
     lib.custom.splice(i, 1);
@@ -1548,21 +1551,13 @@ h1, h2, h3, p { margin: 0; }
   function normalizeLibrary(raw, stack, progress, normalizeProgress2) {
     const lib = emptyLibrary();
     if (raw && typeof raw === "object") {
-      lib.custom = Array.isArray(raw.custom) ? raw.custom.filter((c) => c && typeof c.id === "string" && isValidStack(c.cards)).slice(0, MAX_KEPT + 1).map((c) => ({
+      lib.custom = Array.isArray(raw.custom) ? raw.custom.filter((c) => c && typeof c.id === "string" && isValidStack(c.cards)).slice(0, MAX_SAVED).map((c) => ({
         id: c.id,
         name: typeof c.name === "string" && c.name.trim() ? c.name.trim().slice(0, 40) : null,
         num: Number.isInteger(c.num) ? c.num : 1,
         cards: c.cards.slice(),
-        kept: c.kept !== false,
         createdAt: Number(c.createdAt) || 0
       })) : [];
-      let pendingSeen = false;
-      for (const c of lib.custom) {
-        if (!c.kept) {
-          if (pendingSeen) c.kept = true;
-          pendingSeen = true;
-        }
-      }
       lib.nextNum = Math.max(Number(raw.nextNum) || 1, ...lib.custom.map((c) => c.num + 1), 1);
       const known = /* @__PURE__ */ new Set([...BUILT_IN.map((b) => b.id), ...lib.custom.map((c) => c.id)]);
       for (const [id, p] of Object.entries(raw.saved ?? {})) if (known.has(id)) lib.saved[id] = normalizeProgress2(p);
@@ -1575,9 +1570,12 @@ h1, h2, h3, p { margin: 0; }
     } else if (stack) {
       const id = findStack(state, stack);
       if (id) lib.active = id;
-      else {
-        lib.custom.push({ id: "c-migrated", name: null, num: lib.nextNum++, cards: stack.slice(), kept: true, createdAt: Date.now() });
+      else if (lib.custom.length < MAX_SAVED) {
+        lib.custom.push({ id: "c-migrated", name: null, num: lib.nextNum++, cards: stack.slice(), createdAt: Date.now() });
         lib.active = "c-migrated";
+      } else {
+        lib.active = "mnemonica";
+        state.stack = MNEMONICA.slice();
       }
     }
     delete lib.saved[lib.active];
@@ -1706,6 +1704,7 @@ h1, h2, h3, p { margin: 0; }
       gear: "M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z",
       check: "M5 12.5l4.5 4.5L19 7.5",
       more: "M5.5 12h.01 M12 12h.01 M18.5 12h.01",
+      backspace: "M21 5H8.5l-6 7 6 7H21a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1z M17.5 9.5l-5 5 M12.5 9.5l5 5",
       share: "M12 3v12 M8 7l4-4 4 4 M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7",
       grip: "M5 8h14 M5 12h14 M5 16h14",
       undo: "M9 14L4 9l5-5 M4 9h10a6 6 0 0 1 0 12h-3",
@@ -1742,10 +1741,21 @@ h1, h2, h3, p { margin: 0; }
   }
   var pl = (lang, n, one, many) => (lang === "fr" ? n <= 1 : n === 1) ? one : many;
   var EN = {
+    "settings.haptics": "Vibrate on answers",
+    "settings.currentStack": "Current stack",
+    "settings.version": "Version {v}",
+    "lib.fullMessage": "You already have 5 stacks of your own. Choose one to delete; the new one takes its place.",
+    "lib.fullTitle": "Replace a stack?",
+    "lib.savedCount": "{n} of {max} saved",
+    "q.padOk": "Enter",
+    "q.padBack": "Delete",
+    "ch.inputKeypad": "Number pad",
+    "ch.inputChoices": "Multiple choice",
+    "ch.positionInput": "Answer positions with",
+    "ch.settings": "Settings",
     "backup.group": "Backup",
     "backup.save": "Save a backup",
     "backup.restoreRow": "Restore from a backup",
-    "backup.footer": "Your stacks and progress live only on this device. Save a backup now and then, and use it to move everything to another phone or browser.",
     "backup.saveTitle": "Backup",
     "backup.saveHelp": "This text holds all your stacks, progress and settings. Keep it somewhere safe, like Notes or Files.",
     "backup.shareFile": "Save as a file",
@@ -1766,7 +1776,7 @@ h1, h2, h3, p { margin: 0; }
     "backup.error.notBackup": "That isn\u2019t a Card Stack Trainer backup.",
     "lib.alreadyExists": "That order is already {name}.",
     "lib.matches": "That order is {name}. Now using it.",
-    "lib.newSaved": "Saved as {name}. Keep it or delete it below.",
+    "lib.newSaved": "Saved as {name}",
     "lib.noCustom": "None yet. Make one from Si Stebbins, a blank stack or your own order.",
     "lib.save": "Save",
     "lib.renamePlaceholder": "Name",
@@ -1775,10 +1785,6 @@ h1, h2, h3, p { margin: 0; }
     "lib.deleteMessage": "Its progress is deleted too.",
     "lib.deleteTitle": "Delete \u201C{name}\u201D?",
     "lib.deleted": "Deleted {name}",
-    "lib.kept": "Kept {name}",
-    "lib.keepFull": "You already keep 3 stacks. Delete one of them first, or delete this one.",
-    "lib.keepMessage": "A kept stack stays in your list with its progress. A deleted one is gone for good.",
-    "lib.keepTitle": "Keep \u201C{name}\u201D?",
     "lib.sbName": "{base} ({card})",
     "lib.customN": "Custom {n}",
     "lib.stars": ({ n }) => `${n} ${pl("en", n, "star", "stars")}`,
@@ -1789,16 +1795,11 @@ h1, h2, h3, p { margin: 0; }
     "lib.edit": "Edit order",
     "lib.rename": "Rename",
     "lib.delete": "Delete",
-    "lib.keep": "Keep",
-    "lib.pendingHint": "Keep this stack?",
-    "lib.notKept": "Not kept yet",
     "lib.new": "New stack",
-    "lib.footer": "Each stack keeps its own progress. You can keep up to {max} stacks of your own.",
-    "lib.keptCount": "{n} of {max} kept",
+    "lib.footer": "Each stack keeps its own progress. You can save up to {max} stacks of your own.",
     "lib.custom": "Your stacks",
     "lib.builtIn": "Built in",
     "lib.title": "Stacks",
-    "settings.stacks": "Stacks",
     "home.stackAria": "{name}. Change stack",
     "home.chooseStack": "Choose a stack",
     "learn.mask": "Mask",
@@ -1810,7 +1811,6 @@ h1, h2, h3, p { margin: 0; }
     "q.fbNext": "After {prompt} comes {answer}",
     "q.fbPrev": "Before {prompt} comes {answer}",
     // general
-    "app.title": "Card Stack Trainer",
     "nav.home": "Home",
     "nav.back": "Back",
     "common.cancel": "Cancel",
@@ -1841,7 +1841,7 @@ h1, h2, h3, p { margin: 0; }
     "home.learn": "Learn",
     "home.learnDetail": "Browse the stack and use flashcards",
     "home.challenges": "Challenges",
-    "home.challengesDetail": "Timed questions, range by range",
+    "home.challengesDetail": "Timed questions by range",
     "home.needStack": "Save a stack first.",
     // settings
     "settings.title": "Settings",
@@ -1852,7 +1852,6 @@ h1, h2, h3, p { margin: 0; }
     "settings.wrong": "After a wrong answer",
     "settings.wrongTap": "Wait for a tap",
     "settings.wrongAuto": "Move on by itself",
-    "settings.questionsFooter": "Time limits are on the Challenges screen.",
     "settings.pct": "{n}%",
     "settings.groupProgress": "Progress",
     "settings.resetRow": "Reset this stack\u2019s progress",
@@ -1977,31 +1976,23 @@ h1, h2, h3, p { margin: 0; }
     "learn.next": "Next",
     // challenges
     "ch.title": "Challenges",
-    "ch.timing": "Timing",
     "ch.practice": "Practice",
     "ch.perQuestion": "{n} s per question",
     "ch.practiceAria": "Practice: seconds per question",
     "ch.noLimitPractice": "No time limit in practice",
     "ch.noLimit": "No limit",
     "ch.challenge": "Challenge",
-    "ch.timingFooter": "Challenges last {s} seconds: answer as many cards as you can. {m} mistakes end the run. Stars at {one}, {two} and {three} correct answers.",
     "ch.ranges": "Ranges",
-    "ch.rangesFooter": "Three stars on a challenge opens the next step. Practice is never scored.",
     "ch.starsOf": ({ n, of }) => `${n} of ${of} stars`,
     "ch.needsMix": "Needs 3 stars on Mix in {range}",
     "ch.best": "Best: {n}",
     "ch.noChallenge": "No challenge yet",
-    "ch.recent": "Recent answers {pct}%",
     "ch.challengeAriaBtn": "Challenge, {time}",
     // quiz
     "q.stopTitle": "Stop this challenge?",
     "q.stopMessage": "The run won\u2019t be scored.",
     "q.stopConfirm": "Stop challenge",
     "q.keepGoing": "Keep going",
-    "q.where": "Where is this card?",
-    "q.which": "Which card is here?",
-    "q.after": "Which card comes after this one?",
-    "q.before": "Which card comes before this one?",
     "q.nextCard": "Next card",
     "q.prevCard": "Previous card",
     "q.correct": "Correct",
@@ -2063,7 +2054,6 @@ h1, h2, h3, p { margin: 0; }
     "stats.starsValue": "{n} of {of}",
     "stats.notTried": "Not tried",
     "stats.answersCount": ({ n }) => `${n} ${pl("en", n, "answer", "answers")}`,
-    "stats.rangeFooter": ({ pct: pct3, n, stars, of }) => `${pct3} right over ${n} ${pl("en", n, "answer", "answers")}, ${stars} of ${of} stars.`,
     "stats.weak": "Cards you miss most",
     "stats.weakEmpty": "No misses yet. Cards you get wrong will show up here.",
     "stats.missedOf": "{m} of {n} missed",
@@ -2083,10 +2073,21 @@ h1, h2, h3, p { margin: 0; }
     "q.needCount3": "Three stars needs {n} correct."
   };
   var FR = {
+    "settings.haptics": "Vibrer aux r\xE9ponses",
+    "settings.currentStack": "Chapelet en cours",
+    "settings.version": "Version {v}",
+    "lib.fullMessage": "Tu as d\xE9j\xE0 5 chapelets personnels. Choisis-en un \xE0 supprimer ; le nouveau prendra sa place.",
+    "lib.fullTitle": "Remplacer un chapelet ?",
+    "lib.savedCount": "{n} sur {max} sauvegard\xE9s",
+    "q.padOk": "Valider",
+    "q.padBack": "Effacer",
+    "ch.inputKeypad": "Pav\xE9 num\xE9rique",
+    "ch.inputChoices": "Choix multiples",
+    "ch.positionInput": "Saisie des positions",
+    "ch.settings": "R\xE9glages",
     "backup.group": "Sauvegarde",
     "backup.save": "Faire une sauvegarde",
     "backup.restoreRow": "Restaurer une sauvegarde",
-    "backup.footer": "Tes chapelets et ta progression restent seulement sur cet appareil. Fais une sauvegarde de temps en temps ; elle sert aussi \xE0 tout transf\xE9rer sur un autre t\xE9l\xE9phone ou navigateur.",
     "backup.saveTitle": "Sauvegarde",
     "backup.saveHelp": "Ce texte contient tous tes chapelets, ta progression et tes r\xE9glages. Garde-le en lieu s\xFBr, par exemple dans Notes ou Fichiers.",
     "backup.shareFile": "Enregistrer en fichier",
@@ -2107,7 +2108,7 @@ h1, h2, h3, p { margin: 0; }
     "backup.error.notBackup": "Ce n\u2019est pas une sauvegarde de cette appli.",
     "lib.alreadyExists": "Cet ordre correspond d\xE9j\xE0 \xE0 \xAB {name} \xBB.",
     "lib.matches": "Cet ordre correspond \xE0 \xAB {name} \xBB. C\u2019est maintenant ton chapelet en cours.",
-    "lib.newSaved": "Enregistr\xE9 sous \xAB {name} \xBB. Garde-le ou supprime-le ci-dessous.",
+    "lib.newSaved": "Sauvegard\xE9 sous \xAB {name} \xBB",
     "lib.noCustom": "Aucun pour l\u2019instant. Cr\xE9e-en un \xE0 partir de Si Stebbins, d\u2019un chapelet vide ou de ton propre ordre.",
     "lib.save": "Enregistrer",
     "lib.renamePlaceholder": "Nom",
@@ -2116,10 +2117,6 @@ h1, h2, h3, p { margin: 0; }
     "lib.deleteMessage": "Sa progression sera aussi supprim\xE9e.",
     "lib.deleteTitle": "Supprimer \xAB {name} \xBB ?",
     "lib.deleted": "\xAB {name} \xBB supprim\xE9",
-    "lib.kept": "\xAB {name} \xBB gard\xE9",
-    "lib.keepFull": "Tu gardes d\xE9j\xE0 3 chapelets. Supprimes-en un d\u2019abord, ou supprime celui-ci.",
-    "lib.keepMessage": "Un chapelet gard\xE9 reste dans ta liste avec sa progression. Un chapelet supprim\xE9 dispara\xEEt pour de bon.",
-    "lib.keepTitle": "Garder \xAB {name} \xBB ?",
     "lib.sbName": "{base} ({card})",
     "lib.customN": "Personnalis\xE9 {n}",
     "lib.stars": ({ n }) => `${n} ${pl("fr", n, "\xE9toile", "\xE9toiles")}`,
@@ -2130,20 +2127,14 @@ h1, h2, h3, p { margin: 0; }
     "lib.edit": "Modifier l\u2019ordre",
     "lib.rename": "Renommer",
     "lib.delete": "Supprimer",
-    "lib.keep": "Garder",
-    "lib.pendingHint": "Le garder ?",
-    "lib.notKept": "Pas encore gard\xE9",
     "lib.new": "Nouveau chapelet",
-    "lib.footer": "Chaque chapelet garde sa propre progression. Tu peux garder jusqu\u2019\xE0 {max} chapelets personnels.",
-    "lib.keptCount": "{n} sur {max} gard\xE9s",
+    "lib.footer": "Chaque chapelet garde sa propre progression. Tu peux sauvegarder jusqu\u2019\xE0 {max} chapelets personnels.",
     "lib.custom": "Mes chapelets",
     "lib.builtIn": "Int\xE9gr\xE9s",
     "lib.title": "Chapelets",
-    "settings.stacks": "Chapelets",
     "home.stackAria": "{name}. Changer de chapelet",
     "home.chooseStack": "Choisir un chapelet",
     // French uses "tu", short labels, and everyday wording.
-    "app.title": "Chapelet m\xE9moris\xE9",
     "nav.home": "Accueil",
     "nav.back": "Retour",
     "common.cancel": "Annuler",
@@ -2174,9 +2165,9 @@ h1, h2, h3, p { margin: 0; }
     "home.language": "Langue",
     "home.settings": "R\xE9glages",
     "home.learn": "Apprendre",
-    "home.learnDetail": "Liste et cartes \xE9clair",
+    "home.learnDetail": "Liste et flashcards",
     "home.challenges": "D\xE9fis",
-    "home.challengesDetail": "Chronom\xE9tr\xE9s, plage par plage",
+    "home.challengesDetail": "Questions chronom\xE9tr\xE9es par plage",
     "home.needStack": "Enregistre d\u2019abord ton chapelet.",
     "home.review": "Revoir mes erreurs",
     "home.reviewDetail": ({ n }) => `${n} ${pl("fr", n, "carte", "cartes")} \xE0 revoir`,
@@ -2193,7 +2184,6 @@ h1, h2, h3, p { margin: 0; }
     "settings.wrong": "Apr\xE8s une erreur",
     "settings.wrongTap": "Attendre",
     "settings.wrongAuto": "Continuer",
-    "settings.questionsFooter": "Les temps se r\xE8glent dans D\xE9fis.",
     "settings.pct": "{n} %",
     "settings.groupProgress": "Progression",
     "settings.resetRow": "R\xE9initialiser ce chapelet",
@@ -2208,7 +2198,7 @@ h1, h2, h3, p { margin: 0; }
     "editor.tabText": "Texte",
     "editor.startFrom": "Partir de",
     "editor.blank": "Vide",
-    "editor.loaded": "{name} charg\xE9. Enregistre pour le garder.",
+    "editor.loaded": "{name} charg\xE9. N\u2019oublie pas d\u2019enregistrer.",
     "editor.cleared": "Toutes les positions sont vides.",
     "editor.swapped": "\xC9change : {card} arrive ici et {other} passe en #{from}.",
     "editor.movedEmpty": "{card} arrive ici. La #{from} est maintenant vide.",
@@ -2276,12 +2266,12 @@ h1, h2, h3, p { margin: 0; }
     "sb.starts": "D\xE9but",
     "sb.finishOrder": "Termine l\u2019ordre des couleurs pour voir l\u2019aper\xE7u.",
     "sb.load": "Charger",
-    "sb.loaded": "Si Stebbins charg\xE9 \xE0 partir de {card}. Enregistre pour le garder.",
-    "sb.loadedReverse": "Si Stebbins invers\xE9 charg\xE9 \xE0 partir de {card}. Enregistre pour le garder.",
+    "sb.loaded": "Si Stebbins charg\xE9 \xE0 partir de {card}. N\u2019oublie pas d\u2019enregistrer.",
+    "sb.loadedReverse": "Si Stebbins invers\xE9 charg\xE9 \xE0 partir de {card}. N\u2019oublie pas d\u2019enregistrer.",
     "learn.title": "Apprendre",
     "learn.mode": "Mode",
     "learn.list": "Liste",
-    "learn.cards": "Cartes \xE9clair",
+    "learn.cards": "Flashcards",
     "learn.rangesAria": "Positions",
     "learn.stackAria": "Chapelet",
     "learn.order": "Ordre",
@@ -2318,32 +2308,24 @@ h1, h2, h3, p { margin: 0; }
     "learn.again": "\xC0 revoir",
     "learn.next": "Suivante",
     "ch.title": "D\xE9fis",
-    "ch.timing": "Temps",
     "ch.practice": "Entra\xEEnement",
     "ch.perQuestion": "{n} s par question",
     "ch.practiceAria": "Entra\xEEnement : secondes par question",
     "ch.noLimitPractice": "Pas de limite \xE0 l\u2019entra\xEEnement",
     "ch.noLimit": "Sans limite",
     "ch.challenge": "D\xE9fi",
-    "ch.timingFooter": "Un d\xE9fi dure {s} secondes : r\xE9ponds au plus de cartes possible. Apr\xE8s {m} erreurs, c\u2019est termin\xE9. \xC9toiles \xE0 {one}, {two} et {three} bonnes r\xE9ponses.",
     "ch.ranges": "Plages",
-    "ch.rangesFooter": "Trois \xE9toiles \xE0 un d\xE9fi d\xE9bloquent la suite. L\u2019entra\xEEnement ne compte pas.",
     "ch.starsOf": ({ n, of }) => `${n} ${pl("fr", n, "\xE9toile", "\xE9toiles")} sur ${of}`,
     "ch.needsMix": "3 \xE9toiles en M\xE9lange ({range}) pour d\xE9bloquer",
     "ch.mixLocked": "Obtiens 3 \xE9toiles \xE0 tous les d\xE9fis pour d\xE9bloquer.",
     "ch.best": "Record : {n}",
     "ch.noChallenge": "Pas encore de d\xE9fi",
-    "ch.recent": "R\xE9ponses r\xE9centes : {pct} %",
     "ch.challengeAriaBtn": "D\xE9fi, {time}",
     "ch.practiceBtn": "S\u2019entra\xEEner",
     "q.stopTitle": "Arr\xEAter le d\xE9fi ?",
     "q.stopMessage": "Cet essai ne comptera pas.",
     "q.stopConfirm": "Arr\xEAter",
     "q.keepGoing": "Continuer",
-    "q.where": "O\xF9 est cette carte ?",
-    "q.which": "Quelle carte est ici ?",
-    "q.after": "Quelle carte vient apr\xE8s ?",
-    "q.before": "Quelle carte vient avant ?",
     "q.nextCard": "Carte suivante",
     "q.prevCard": "Carte pr\xE9c\xE9dente",
     "q.correct": "Bonne r\xE9ponse !",
@@ -2408,7 +2390,6 @@ h1, h2, h3, p { margin: 0; }
     "stats.starsValue": "{n} sur {of}",
     "stats.notTried": "Pas encore",
     "stats.answersCount": ({ n }) => `${n} ${pl("fr", n, "r\xE9ponse", "r\xE9ponses")}`,
-    "stats.rangeFooter": ({ pct: pct3, n, stars, of }) => `${pct3} de r\xE9ussite sur ${n} ${pl("fr", n, "r\xE9ponse", "r\xE9ponses")}, ${stars} ${pl("fr", stars, "\xE9toile", "\xE9toiles")} sur ${of}.`,
     "stats.weak": "Cartes les plus rat\xE9es",
     "stats.weakEmpty": "Aucune erreur pour l\u2019instant. Les cartes rat\xE9es appara\xEEtront ici.",
     "stats.missedOf": ({ m, n }) => `${m} ${pl("fr", m, "erreur", "erreurs")} sur ${n}`,
@@ -2515,10 +2496,10 @@ h1, h2, h3, p { margin: 0; }
       footer && h("p", { class: "group-footer" }, footer)
     );
   }
-  function segmented({ options, value, onChange, label }) {
+  function segmented({ options, value, onChange, label: label2 }) {
     return h(
       "div",
-      { class: "segmented", role: "radiogroup", "aria-label": label },
+      { class: "segmented", role: "radiogroup", "aria-label": label2 },
       options.map(
         (o) => h(
           "button",
@@ -2535,17 +2516,17 @@ h1, h2, h3, p { margin: 0; }
       )
     );
   }
-  function switchControl({ checked, onChange, label }) {
+  function switchControl({ checked, onChange, label: label2 }) {
     return h("input", {
       type: "checkbox",
       role: "switch",
       class: "switch",
       checked,
-      "aria-label": label,
+      "aria-label": label2,
       onChange: (e) => onChange(e.target.checked)
     });
   }
-  function slider({ min, max, step = 1, value, onInput, onChange, label, disabled }) {
+  function slider({ min, max, step = 1, value, onInput, onChange, label: label2, disabled }) {
     return h("input", {
       type: "range",
       class: "slider",
@@ -2554,7 +2535,7 @@ h1, h2, h3, p { margin: 0; }
       step,
       value: String(value),
       disabled,
-      "aria-label": label,
+      "aria-label": label2,
       onInput: (e) => onInput?.(Number(e.target.value), e.target),
       onChange: (e) => onChange?.(Number(e.target.value))
     });
@@ -2605,9 +2586,9 @@ h1, h2, h3, p { margin: 0; }
     toastTimer = setTimeout(() => el.classList.remove("show"), duration2);
   }
   var STAR_PATH = "M12 2.6l2.85 6.05 6.65.8-4.9 4.55 1.28 6.58L12 17.3l-5.88 3.28 1.28-6.58L2.5 9.45l6.65-.8z";
-  function starRow(earned, { size = "md", label = true, count = 3 } = {}) {
+  function starRow(earned, { size = "md", label: label2 = true, count = 3 } = {}) {
     const NS = "http://www.w3.org/2000/svg";
-    const wrap = h("span", { class: `stars stars-${size}`, role: label ? "img" : null, "aria-label": label ? t("stars.aria", { n: earned }) : null });
+    const wrap = h("span", { class: `stars stars-${size}`, role: label2 ? "img" : null, "aria-label": label2 ? t("stars.aria", { n: earned }) : null });
     for (let i = 0; i < count; i++) {
       const svg = document.createElementNS(NS, "svg");
       svg.setAttribute("viewBox", "0 0 24 24");
@@ -2722,35 +2703,23 @@ h1, h2, h3, p { margin: 0; }
       input.select();
     });
   }
-  async function resolvePending(app, { except } = {}) {
-    const pending = pendingStack(app.state);
-    if (!pending || pending.id === except) return true;
-    const name = stackLabel({ ...pending, kind: "custom" });
-    const full = !canKeepMore(app.state);
+  async function ensureRoomForNew(app) {
+    if (canAddCustom(app.state)) return true;
+    const custom = listStacks(app.state).filter((e) => e.kind === "custom");
     const choice = await choiceSheet({
-      title: t("lib.keepTitle", { name }),
-      message: full ? t("lib.keepFull") : t("lib.keepMessage"),
-      actions: [
-        { id: "keep", label: t("lib.keep"), kind: "primary", disabled: full },
-        { id: "delete", label: t("lib.delete"), kind: "danger" },
-        { id: "cancel", label: t("common.cancel"), kind: "quiet" }
-      ]
+      title: t("lib.fullTitle"),
+      message: t("lib.fullMessage"),
+      actions: [...custom.map((e) => ({ id: e.id, label: stackLabel(e), kind: "quiet" })), { id: null, label: t("common.cancel"), kind: "quiet" }]
     });
-    if (choice === "keep") {
-      app.update((s) => keep(s, pending.id), { render: false });
-      toast(t("lib.kept", { name }));
-      return true;
-    }
-    if (choice === "delete") {
-      app.update((s) => remove(s, pending.id), { render: false });
-      toast(t("lib.deleted", { name }));
-      return true;
-    }
-    return false;
+    if (!choice) return false;
+    const name = stackLabel(custom.find((e) => e.id === choice));
+    const ok = await confirmSheet({ title: t("lib.deleteTitle", { name }), message: t("lib.deleteMessage"), confirmLabel: t("lib.delete"), destructive: true });
+    if (!ok) return false;
+    app.update((s) => remove(s, choice), { render: false });
+    return true;
   }
   async function switchStack(app, id) {
     if (app.state.library.active === id) return true;
-    if (!await resolvePending(app, { except: id })) return false;
     app.update((s) => switchTo(s, id), { render: false });
     toast(t("lib.switched", { name: activeStackLabel(app.state) }));
     return true;
@@ -3048,7 +3017,6 @@ h1, h2, h3, p { margin: 0; }
   var categoryTitle = (c) => c.from === 1 && c.to === 52 ? t("range.full") : t("range.positions", { from: c.from, to: c.to });
   var shortTitle = (c) => c.from === 1 && c.to === 52 ? t("range.shortFull") : t("range.short", { from: c.from, to: c.to });
   var levelName = (id) => t(`level.${id}`);
-  var PRACTICE_WINDOW = 20;
   function timingGroup(app) {
     const s = app.state.settings;
     const set = (key, value) => app.update((st) => {
@@ -3077,12 +3045,25 @@ h1, h2, h3, p { margin: 0; }
       h("span", { class: "row-title" }, t("ch.noLimitPractice")),
       switchControl({ checked: s.untimed, label: t("ch.noLimitPractice"), onChange: (v) => set("untimed", v) })
     );
+    const inputRow = h(
+      "div",
+      { class: "row row-stacked" },
+      h("span", { class: "row-title" }, t("ch.positionInput")),
+      segmented({
+        label: t("ch.positionInput"),
+        value: s.positionInput,
+        options: [
+          { value: "choices", label: t("ch.inputChoices") },
+          { value: "keypad", label: t("ch.inputKeypad") }
+        ],
+        onChange: (v) => set("positionInput", v)
+      })
+    );
     return h(
       "section",
       { class: "group" },
-      h("h2", { class: "group-header" }, t("ch.timing")),
-      h("div", { class: "group-body" }, practiceRow, untimedRow),
-      h("p", { class: "group-footer" }, t("ch.timingFooter", { s: CHALLENGE_SECONDS, m: MAX_MISTAKES, one: STAR_COUNTS[0], two: STAR_COUNTS[1], three: STAR_COUNTS[2] }))
+      h("h2", { class: "group-header" }, t("ch.settings")),
+      h("div", { class: "group-body" }, practiceRow, untimedRow, inputRow)
     );
   }
   function render(app) {
@@ -3116,12 +3097,12 @@ h1, h2, h3, p { margin: 0; }
         "main",
         { class: "content" },
         timingGroup(app),
-        group(t("ch.ranges"), rows, t("ch.rangesFooter"))
+        group(t("ch.ranges"), rows)
       )
     );
   }
   function levelCard(app, c, level) {
-    const { progress, settings } = app.state;
+    const { progress } = app.state;
     const open = isLevelOpen(progress, c.id, level.id);
     if (!open) {
       return h(
@@ -3132,14 +3113,12 @@ h1, h2, h3, p { margin: 0; }
       );
     }
     const best = bestRun(progress, c.id, level.id);
-    const practice = recentAccuracy(progress, c.id, level.id, PRACTICE_WINDOW);
     const bestText = best ? t("ch.best", { n: best.correct }) : t("ch.noChallenge");
-    const practiceText = practice.accuracy == null ? null : t("ch.recent", { pct: Math.round(practice.accuracy * 100) });
     return h(
       "div",
       { class: "level-card" },
       h("div", { class: "level-head" }, h("span", { class: "level-name" }, levelName(level.id)), starRow(best?.stars ?? 0)),
-      h("p", { class: "level-stats" }, h("span", null, bestText), practiceText && h("span", null, practiceText)),
+      h("p", { class: "level-stats" }, bestText),
       h(
         "div",
         { class: "level-actions" },
@@ -3232,12 +3211,12 @@ h1, h2, h3, p { margin: 0; }
     const { progress } = app.state;
     const rows = CATEGORIES.map((c) => {
       const cs = categoryStats(progress, c.id);
-      const label = c.from === 1 && c.to === 52 ? t("range.full") : t("range.short", { from: c.from, to: c.to });
+      const label2 = c.from === 1 && c.to === 52 ? t("range.full") : t("range.short", { from: c.from, to: c.to });
       const content = [
-        h("span", { class: "prog-name" }, label),
+        h("span", { class: "prog-name" }, label2),
         cs.open ? h("span", { class: "prog-stars" }, starRow(1, { size: "xs", label: false, count: 1 }), `${cs.earned}/${cs.possible}`) : h("span", { class: "prog-stars muted" }, icon("lock")),
         h("span", { class: "prog-acc" }, cs.accuracy == null ? "" : t("settings.pct", { n: Math.round(cs.accuracy * 100) })),
-        h("span", { class: "prog-bar", "aria-hidden": "true" }, h("span", { style: { width: `${cs.earned / cs.possible * 100}%` } }))
+        cs.open ? h("span", { class: "prog-bar", "aria-hidden": "true" }, h("span", { style: { width: `${cs.earned / cs.possible * 100}%` } })) : h("span")
       ];
       return cs.open ? h("button", {
         type: "button",
@@ -3286,7 +3265,7 @@ h1, h2, h3, p { margin: 0; }
     return h(
       "div",
       { class: "screen screen-home" },
-      topBar({ title: t("app.title"), left: languageToggle(app), right: gear }),
+      topBar({ title: "", left: languageToggle(app), right: gear }),
       h(
         "main",
         { class: "content" },
@@ -3458,7 +3437,7 @@ h1, h2, h3, p { margin: 0; }
     const stackRow2 = h(
       "button",
       { type: "button", class: "row row-link", onClick: () => app.navigate("stacks") },
-      h("span", { class: "row-title" }, t("settings.stacks")),
+      h("span", { class: "row-title" }, t("settings.currentStack")),
       h("span", { class: "row-value" }, stack ? activeStackLabel(app.state) : t("settings.notSet")),
       icon("chevronRight")
     );
@@ -3487,6 +3466,12 @@ h1, h2, h3, p { margin: 0; }
         onChange: (v) => set("wrongAnswer", v)
       })
     );
+    const hapticsRow = h(
+      "label",
+      { class: "row" },
+      h("span", { class: "row-title" }, t("settings.haptics")),
+      switchControl({ checked: s.haptics, label: t("settings.haptics"), onChange: (v) => set("haptics", v) })
+    );
     const reset = async () => {
       const ok = await confirmSheet({
         title: t("settings.resetTitle", { name: activeStackLabel(app.state) }),
@@ -3513,12 +3498,13 @@ h1, h2, h3, p { margin: 0; }
         "main",
         { class: "content" },
         group(t("settings.groupStack"), [stackRow2]),
-        group(t("settings.groupQuestions"), [choicesRow, wrongRow], t("settings.questionsFooter")),
+        group(t("settings.groupQuestions"), [choicesRow, wrongRow, hapticsRow]),
         group(t("backup.group"), [
           h("button", { type: "button", class: "row row-link", onClick: () => openBackupSheet(app) }, h("span", { class: "row-title" }, t("backup.save")), icon("chevronRight")),
           h("button", { type: "button", class: "row row-link", onClick: () => openRestoreSheet(app) }, h("span", { class: "row-title" }, t("backup.restoreRow")), icon("chevronRight"))
-        ], t("backup.footer")),
-        group(t("settings.groupProgress"), [resetRow], hasProgress(progress) ? null : t("settings.nothingToReset"))
+        ]),
+        group(t("settings.groupProgress"), [resetRow], hasProgress(progress) ? null : t("settings.nothingToReset")),
+        h("p", { class: "version" }, t("settings.version", { v: "2026-10-20 20:03" }))
       )
     );
   }
@@ -3795,7 +3781,7 @@ h1, h2, h3, p { margin: 0; }
       app.back();
       return;
     }
-    if (!await resolvePending(app)) return;
+    if (!await ensureRoomForNew(app)) return;
     app.update((s) => addCustom(s, cards), { render: false });
     ed = null;
     toast(t("lib.newSaved", { name: activeStackLabel(app.state) }), { duration: 4200 });
@@ -4785,14 +4771,51 @@ h1, h2, h3, p { margin: 0; }
     return { total, correct, timedOut, avgMs, accuracy: total ? correct / total : 0, missed };
   }
 
+  // src/ui/haptics.js
+  var label = null;
+  function switchLabel() {
+    if (label) return label;
+    const wrap = document.createElement("div");
+    wrap.setAttribute("aria-hidden", "true");
+    Object.assign(wrap.style, { position: "fixed", width: "1px", height: "1px", overflow: "hidden", opacity: "0", pointerEvents: "none", left: "-10px", top: "0" });
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.id = "haptic-switch";
+    input.tabIndex = -1;
+    input.setAttribute("switch", "");
+    label = document.createElement("label");
+    label.htmlFor = "haptic-switch";
+    wrap.append(input, label);
+    document.body.append(wrap);
+    return label;
+  }
+  var isApple = () => /iPhone|iPad|iPod/.test(navigator.userAgent) || navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
+  function haptic(kind, enabled = true) {
+    if (!enabled) return;
+    try {
+      if (typeof navigator.vibrate === "function") {
+        navigator.vibrate(kind === "wrong" ? [35, 70, 35] : 18);
+        return;
+      }
+      if (isApple()) {
+        const l = switchLabel();
+        l.click();
+        if (kind === "wrong") setTimeout(() => l.click(), 110);
+      }
+    } catch {
+    }
+  }
+
   // src/ui/screens/quiz.js
   var CORRECT_PAUSE_MS = 380;
   var WRONG_AUTO_PAUSE_MS = 1700;
   var TAP_GUARD_MS = 250;
-  var PRACTICE_WINDOW2 = 20;
+  var PRACTICE_WINDOW = 20;
   var RIGHT_BEAT_MS = 240;
   var WRONG_BEAT_MS = 560;
   var OUT_BEAT_MS = 800;
+  var COUNTDOWN_FROM = 3;
+  var COUNTDOWN_STEP_MS = 750;
   var qs = null;
   var pausedTotal = 0;
   var pausedAt = null;
@@ -4838,9 +4861,12 @@ h1, h2, h3, p { margin: 0; }
       levelId,
       mode,
       session,
-      phase: "question",
-      // 'question' | 'summary'
+      phase: "countdown",
+      // 'countdown' | 'question' | 'summary'
+      count: COUNTDOWN_FROM,
       question: session.next(),
+      typed: "",
+      // number-pad entry for "card to position" questions
       state: "asking",
       // 'asking' | 'answered'
       picked: null,
@@ -4884,15 +4910,16 @@ h1, h2, h3, p { margin: 0; }
       { render: false }
     );
   }
-  function answer(app, index) {
+  function answer(app, index, typed = null) {
     if (!qs || qs.phase !== "question" || qs.state !== "asking") return;
     const q = qs.question;
-    const timedOut = index == null;
-    const choice = timedOut ? null : q.choices[index];
+    const timedOut = index == null && typed == null;
+    const choice = timedOut ? null : typed != null ? typed : q.choices[index];
     const correct = !timedOut && choice === q.answer;
     const ms = now() - qs.questionStart;
     qs.answers.push({ question: q, choice, correct, ms, timedOut });
     record(app, q, correct, ms, timedOut);
+    haptic(correct ? "right" : "wrong", app.state.settings.haptics);
     qs.state = "answered";
     qs.picked = index;
     if (isChallenge()) {
@@ -4908,6 +4935,7 @@ h1, h2, h3, p { margin: 0; }
         qs.question = qs.session.next();
         qs.state = "asking";
         qs.picked = null;
+        qs.typed = "";
         qs.lastEvent = null;
         app.render({ keepScroll: true });
       }, out ? OUT_BEAT_MS : correct ? RIGHT_BEAT_MS : WRONG_BEAT_MS);
@@ -4934,6 +4962,7 @@ h1, h2, h3, p { margin: 0; }
     if (!qs.question) return finishPractice(app);
     qs.state = "asking";
     qs.picked = null;
+    qs.typed = "";
     app.render({ keepScroll: true });
   }
   function finishPractice(app) {
@@ -5002,6 +5031,11 @@ h1, h2, h3, p { margin: 0; }
   }
   async function end(app) {
     if (!qs) return;
+    if (qs.phase === "countdown") {
+      leave2();
+      app.back();
+      return;
+    }
     if (isChallenge() && qs.phase === "question") {
       hold();
       const stop = await confirmSheet({
@@ -5044,20 +5078,16 @@ h1, h2, h3, p { margin: 0; }
       face.classList.add(ring);
       return face;
     };
-    let question;
     let left;
     let right;
     if (q.type === "c2p") {
-      question = t("q.where");
       left = cardFace(q.prompt.card, "lg");
-      right = answered ? numberTile2(q.answer, "lg", ring) : numberTile2(null, "lg", "unknown");
+      right = answered ? numberTile2(q.answer, "lg", ring) : qs.typed ? numberTile2(Number(qs.typed), "lg", "typing") : numberTile2(null, "lg", "unknown");
     } else if (q.type === "p2c") {
-      question = t("q.which");
       left = numberTile2(q.prompt.position, "lg");
       right = answered ? revealCard(q.answer) : cardBack("lg");
     } else {
       const next = q.direction === "next";
-      question = next ? t("q.after") : t("q.before");
       const promptCard = cardFace(q.prompt.card, "lg");
       const slot = answered ? revealCard(q.answer) : cardBack("lg");
       [left, right] = next ? [promptCard, slot] : [slot, promptCard];
@@ -5072,7 +5102,6 @@ h1, h2, h3, p { margin: 0; }
         q.direction === "next" ? t("q.nextCard") : t("q.prevCard"),
         q.direction === "next" && icon("chevronRight")
       ),
-      h("p", { class: "quiz-question" }, question),
       h("div", { class: "quiz-pair" }, left, right)
     );
   }
@@ -5130,6 +5159,72 @@ h1, h2, h3, p { margin: 0; }
       content,
       mark,
       h("span", { class: "ans-key", "aria-hidden": "true" }, String(index + 1))
+    );
+  }
+  var usesKeypad = (app, q) => q.type === "c2p" && app.state.settings.positionInput === "keypad";
+  var padRange = () => qs.session.range ?? { from: 1, to: 52 };
+  function padCanReach(prefix, r) {
+    for (let p = r.from; p <= r.to; p++) if (String(p).startsWith(prefix)) return true;
+    return false;
+  }
+  var padIsAnswer = (text, r) => text !== "" && Number(text) >= r.from && Number(text) <= r.to;
+  function padCanGrow(text, r) {
+    for (let p = r.from; p <= r.to; p++) if (String(p).length > text.length && String(p).startsWith(text)) return true;
+    return false;
+  }
+  function padPress(app, key) {
+    if (!qs || qs.state !== "asking") return;
+    const r = padRange();
+    if (key === "back") {
+      qs.typed = qs.typed.slice(0, -1);
+      app.render({ keepScroll: true });
+      return;
+    }
+    if (key === "ok") {
+      if (padIsAnswer(qs.typed, r)) answer(app, null, Number(qs.typed));
+      return;
+    }
+    const next = qs.typed + key;
+    if (!padCanReach(next, r)) return;
+    qs.typed = next;
+    if (padIsAnswer(next, r) && !padCanGrow(next, r)) {
+      answer(app, null, Number(next));
+      return;
+    }
+    app.render({ keepScroll: true });
+  }
+  function keypad(app) {
+    const r = padRange();
+    const asking = qs.state === "asking";
+    const last = qs.answers.at(-1);
+    const enabled = (k) => asking && (k === "back" ? qs.typed.length > 0 : k === "ok" ? padIsAnswer(qs.typed, r) : padCanReach(qs.typed + k, r));
+    const key = (k, content, cls = "", label2 = null) => h(
+      "button",
+      {
+        type: "button",
+        class: `pad-key ${cls}`,
+        disabled: !enabled(k),
+        "aria-label": label2,
+        onClick: (e) => {
+          e.stopPropagation();
+          padPress(app, k);
+        }
+      },
+      content
+    );
+    const wrongTyped = !asking && last && !last.correct && !last.timedOut;
+    return h(
+      "div",
+      { class: "keypad-wrap" },
+      h("div", { class: "pad-display", "aria-live": "polite" }, wrongTyped && h("s", null, `#${last.choice}`)),
+      h(
+        "div",
+        { class: "keypad" },
+        ["1", "2", "3", "4", "5", "6", "7", "8", "9"].map((d) => key(d, d)),
+        key("back", icon("backspace"), "pad-back", t("q.padBack")),
+        key("0", "0"),
+        key("ok", icon("check"), "pad-ok", t("q.padOk"))
+      )
     );
   }
   function challengeStatus() {
@@ -5206,7 +5301,7 @@ h1, h2, h3, p { margin: 0; }
         timerBar,
         promptBlock(q, answered),
         feedback(q),
-        h("div", { class: `answers cols-${cols} ${typeof q.answer === "number" ? "kind-pos" : "kind-card"}` }, q.choices.map((v, i) => choiceButton(app, q, v, i)))
+        usesKeypad(app, q) ? keypad(app) : h("div", { class: `answers cols-${cols} ${typeof q.answer === "number" ? "kind-pos" : "kind-card"}` }, q.choices.map((v, i) => choiceButton(app, q, v, i)))
       ),
       challenge && answered && h("div", { class: `ch-flash ${qs.lastEvent}`, "aria-hidden": "true" })
     );
@@ -5247,7 +5342,7 @@ h1, h2, h3, p { margin: 0; }
   function practiceSummary(app) {
     const s = qs.summary;
     const level = qs.session.level;
-    const recent = isReview() ? { accuracy: null } : recentAccuracy(app.state.progress, qs.categoryId, qs.levelId, PRACTICE_WINDOW2);
+    const recent = isReview() ? { accuracy: null } : recentAccuracy(app.state.progress, qs.categoryId, qs.levelId, PRACTICE_WINDOW);
     const pct3 = Math.round(s.accuracy * 100);
     return h(
       "div",
@@ -5314,12 +5409,36 @@ h1, h2, h3, p { margin: 0; }
       summaryDock(app, t("q.tryAgain"))
     );
   }
+  function countdownView(app) {
+    return h(
+      "div",
+      { class: "screen quiz-screen" },
+      topBar({ title: screenTitle(), back: { label: isChallenge() ? t("q.stop") : t("q.end"), onClick: () => end(app) } }),
+      h(
+        "main",
+        { class: "quiz-main countdown-main" },
+        h("div", { class: "countdown", role: "timer", "aria-live": "assertive" }, h("span", { class: "countdown-num" }, String(qs.count))),
+        h("p", { class: "countdown-label" }, isReview() ? levelName("review") : levelName(qs.session.level.id))
+      )
+    );
+  }
   function render6(app, params) {
     if (!qs) enter3(app, params);
+    if (qs.phase === "countdown") return countdownView(app);
     if (qs.phase === "summary") return isChallenge() ? challengeSummary(app) : practiceSummary(app);
     return questionView(app);
   }
   function afterRender3(app) {
+    if (qs?.phase === "countdown") {
+      clearTimeout(qs.timer);
+      qs.timer = setTimeout(() => {
+        if (!qs || qs.phase !== "countdown") return;
+        qs.count -= 1;
+        if (qs.count <= 0) qs.phase = "question";
+        app.render({ keepScroll: true });
+      }, COUNTDOWN_STEP_MS);
+      return;
+    }
     if (!qs || qs.phase !== "question" || qs.state !== "asking") return;
     qs.questionStart = now();
     if (isChallenge()) {
@@ -5366,6 +5485,14 @@ h1, h2, h3, p { margin: 0; }
   }
   function onKey2(app, e) {
     if (!qs || qs.phase !== "question") return;
+    if (qs.state === "asking" && usesKeypad(app, qs.question)) {
+      if (/^[0-9]$/.test(e.key)) padPress(app, e.key);
+      else if (e.key === "Backspace") padPress(app, "back");
+      else if (e.key === "Enter") padPress(app, "ok");
+      else return;
+      e.preventDefault();
+      return;
+    }
     if (qs.state === "asking") {
       const n = Number(e.key);
       if (n >= 1 && n <= qs.question.choices.length) {
@@ -5386,8 +5513,8 @@ h1, h2, h3, p { margin: 0; }
   var WEAK_SHOWN = 10;
   var pct2 = (x) => x == null ? t("stats.notTried") : t("settings.pct", { n: Math.round(x * 100) });
   var seconds = (ms) => ms == null ? t("stats.notTried") : `${decimal(ms / 1e3)} s`;
-  function valueRow(label, value) {
-    return h("div", { class: "row" }, h("span", { class: "row-title" }, label), h("span", { class: "row-value" }, value));
+  function valueRow(label2, value) {
+    return h("div", { class: "row" }, h("span", { class: "row-title" }, label2), h("span", { class: "row-value" }, value));
   }
   function render7(app) {
     const { progress, stack } = app.state;
@@ -5419,8 +5546,7 @@ h1, h2, h3, p { margin: 0; }
           )
         );
       });
-      const footer = cs.answered ? t("stats.rangeFooter", { pct: pct2(cs.accuracy), n: cs.answered, stars: cs.earned, of: cs.possible }) : null;
-      return group(categoryTitle(c), rows, footer);
+      return group(categoryTitle(c), rows);
     });
     const weak = weakCards(progress, stack);
     const weakSection = weak.length ? h(
@@ -5484,11 +5610,6 @@ h1, h2, h3, p { margin: 0; }
     app.update((s) => remove(s, entry.id));
     toast(t("lib.deleted", { name }));
   }
-  function keepStack(app, entry) {
-    const name = stackLabel(entry);
-    app.update((s) => keep(s, entry.id));
-    toast(t("lib.kept", { name }));
-  }
   async function moreActions(app, entry) {
     const choice = await choiceSheet({
       title: stackLabel(entry),
@@ -5496,7 +5617,6 @@ h1, h2, h3, p { margin: 0; }
         entry.active && { id: "edit", label: t("lib.edit"), kind: "quiet" },
         !entry.active && { id: "use", label: t("lib.use"), kind: "quiet" },
         { id: "rename", label: t("lib.rename"), kind: "quiet" },
-        !entry.kept && { id: "keep", label: t("lib.keep"), kind: "quiet", disabled: !canKeepMore(app.state) },
         { id: "delete", label: t("lib.delete"), kind: "danger" },
         { id: "cancel", label: t("common.cancel"), kind: "quiet" }
       ].filter(Boolean)
@@ -5504,8 +5624,7 @@ h1, h2, h3, p { margin: 0; }
     if (choice === "edit") app.navigate("editor", { purpose: "edit", id: entry.id });
     else if (choice === "use") {
       if (await switchStack(app, entry.id)) app.render({ keepScroll: true });
-    } else if (choice === "keep") keepStack(app, entry);
-    else if (choice === "delete") deleteStack(app, entry);
+    } else if (choice === "delete") deleteStack(app, entry);
     else if (choice === "rename") {
       const name = await promptSheet({ title: t("lib.renameTitle"), value: entry.name ?? stackLabel(entry), placeholder: t("lib.renamePlaceholder"), confirmLabel: t("lib.save") });
       if (name != null) app.update((s) => rename(s, entry.id, name));
@@ -5514,7 +5633,7 @@ h1, h2, h3, p { margin: 0; }
   function stackRow(app, entry) {
     const stars = starsEarned(progressOf(app.state, entry.id));
     const name = stackLabel(entry);
-    const detail = !entry.kept ? t("lib.notKept") : t("lib.stars", { n: stars });
+    const detail = t("lib.stars", { n: stars });
     const main = h(
       "button",
       {
@@ -5527,27 +5646,20 @@ h1, h2, h3, p { margin: 0; }
         }
       },
       h("span", { class: entry.active ? "stack-check on" : "stack-check" }, entry.active && icon("check")),
-      h("span", { class: "row-text row-title" }, h("span", { class: "stack-name" }, name), h("span", { class: entry.kept ? "row-detail" : "row-detail pending" }, detail))
+      h("span", { class: "row-text row-title" }, h("span", { class: "stack-name" }, name), h("span", { class: "row-detail" }, detail))
     );
     return h(
       "div",
-      { class: entry.kept ? "row stack-row" : "row stack-row is-pending" },
+      { class: "row stack-row" },
       main,
-      entry.kind === "custom" && h("button", { type: "button", class: "icon-btn", "aria-label": t("lib.more", { name }), onClick: () => moreActions(app, entry) }, icon("more")),
-      !entry.kept && h(
-        "div",
-        { class: "pending-bar" },
-        h("span", null, t("lib.pendingHint")),
-        h("button", { type: "button", class: "btn btn-quiet btn-small", disabled: !canKeepMore(app.state), onClick: () => keepStack(app, entry) }, t("lib.keep")),
-        h("button", { type: "button", class: "btn btn-quiet btn-small danger-text", onClick: () => deleteStack(app, entry) }, t("lib.delete"))
-      )
+      entry.kind === "custom" && h("button", { type: "button", class: "icon-btn", "aria-label": t("lib.more", { name }), onClick: () => moreActions(app, entry) }, icon("more"))
     );
   }
   function render8(app) {
     const all = listStacks(app.state);
     const builtIn = all.filter((e) => e.kind === "builtIn");
     const custom = all.filter((e) => e.kind === "custom");
-    const kept = keptCount(app.state);
+    const saved2 = savedCount(app.state);
     return h(
       "div",
       { class: "screen" },
@@ -5559,9 +5671,9 @@ h1, h2, h3, p { margin: 0; }
         h(
           "section",
           { class: "group" },
-          h("div", { class: "section-head" }, h("h2", { class: "group-header" }, t("lib.custom")), h("span", { class: "group-count" }, t("lib.keptCount", { n: kept, max: MAX_KEPT }))),
+          h("div", { class: "section-head" }, h("h2", { class: "group-header" }, t("lib.custom")), h("span", { class: "group-count" }, t("lib.savedCount", { n: saved2, max: MAX_SAVED }))),
           custom.length ? h("div", { class: "group-body" }, custom.map((e) => stackRow(app, e))) : h("p", { class: "notice" }, t("lib.noCustom")),
-          h("p", { class: "group-footer" }, t("lib.footer", { max: MAX_KEPT }))
+          h("p", { class: "group-footer" }, t("lib.footer", { max: MAX_SAVED }))
         ),
         h(
           "button",
