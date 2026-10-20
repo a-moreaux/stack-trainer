@@ -1,11 +1,11 @@
-# Card Stack Trainer
+# Stack Trainer
 
 ## English
 
-Card Stack Trainer is a free, installable app for memorizing a deck of playing
+Stack Trainer is a free, installable app for memorizing a deck of playing
 cards. Train with Mnemonica, Aronson, Si Stebbins, or a custom stack through
 flashcards, practice sessions, and timed challenges. The app tracks progress
-and works offline after the first visit.
+and works offline after the first visit. No account is required. No ads, no data stored online.
 
 ### Quick install
 
@@ -16,15 +16,13 @@ Open **[Card Stack Trainer](https://a-moreaux.github.io/stack-trainer/)**, then:
   **Add to Home screen**.
 - **Computer:** In Chrome or Edge, click the install icon in the address bar.
 
-No account is required. Progress and custom stacks are saved on the device.
-
 ## Français
 
-Card Stack Trainer est une application gratuite et installable pour mémoriser
+Stack Trainer est une application gratuite et installable pour mémoriser
 un jeu de cartes. Entraînez-vous avec les chapelets Mnemonica, Aronson,
-Si Stebbins ou un chapelet personnalisé grâce aux cartes mémoire, aux séances
+Si Stebbins ou un chapelet personnalisé grâce aux flashcards, aux quizz
 d'entraînement et aux défis chronométrés. L'application suit votre progression
-et fonctionne hors ligne après la première visite.
+et fonctionne hors ligne après la première visite. Aucun compte nécessaire. Pas de publicité, pas de données stockées en ligne.
 
 ### Installation rapide
 
@@ -37,6 +35,3 @@ puis :
   **Installer l'application** ou **Ajouter à l'écran d'accueil**.
 - **Ordinateur :** Dans Chrome ou Edge, cliquez sur l'icône d'installation
   dans la barre d'adresse.
-
-Aucun compte n'est requis. La progression et les chapelets personnalisés sont
-enregistrés sur l'appareil.
