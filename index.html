@@ -1,11 +1,4 @@
 <!doctype html>
-<!--
-  Card Stack Trainer's production bundle.
-
-  The app is intentionally self-contained so the repository can be served by
-  any static host. CSS section headings and src/... JavaScript markers document
-  the original module boundaries; keep those markers when maintaining the file.
--->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -1063,13 +1056,46 @@ h1, h2, h3, p { margin: 0; }
 body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
 textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-select: text; -webkit-touch-callout: default; }
 .version { margin: 22px 0 4px; text-align: center; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* ---------- mixed sessions: what is being asked ---------- */
+.type-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 700;
+}
+.pad-display.hint { color: var(--muted); font-family: var(--font-ui); font-size: 15px; }
+
+/* ---------- end of a challenge ---------- */
+.ch-ending {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  animation: fade-in 0.2s ease both;
+}
+.ch-ending-text {
+  padding: 18px 28px;
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  font-family: var(--font-card);
+  font-size: 30px;
+  font-weight: 600;
+  animation: count-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
 </style>
 </head>
 <body>
-<!-- Screen contents are rendered into this application root. -->
 <div id="app"></div>
 <noscript>Card Stack Trainer needs JavaScript turned on.</noscript>
-<!-- Dependency-free application bundle; logical source modules are marked below. -->
 <script>(() => {
   var __defProp = Object.defineProperty;
   var __export = (target, all) => {
@@ -1750,6 +1776,11 @@ textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-sel
   }
   var pl = (lang, n, one, many) => (lang === "fr" ? n <= 1 : n === 1) ? one : many;
   var EN = {
+    "q.padHint": "Tap \u2713 for #{n}",
+    "q.outOfHearts": "Out of hearts!",
+    "q.timesUpBig": "Time\u2019s up!",
+    "q.findPosition": "Find the position",
+    "q.findCard": "Find the card",
     "settings.haptics": "Vibrate on answers",
     "settings.currentStack": "Current stack",
     "settings.version": "Version {v}",
@@ -2082,6 +2113,11 @@ textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-sel
     "q.needCount3": "Three stars needs {n} correct."
   };
   var FR = {
+    "q.padHint": "Touche \u2713 pour #{n}",
+    "q.outOfHearts": "Plus de c\u0153urs !",
+    "q.timesUpBig": "Temps \xE9coul\xE9 !",
+    "q.findPosition": "Trouve la position",
+    "q.findCard": "Trouve la carte",
     "settings.haptics": "Vibrer aux r\xE9ponses",
     "settings.currentStack": "Chapelet en cours",
     "settings.version": "Version {v}",
@@ -2177,7 +2213,7 @@ textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-sel
     "home.learnDetail": "Liste et flashcards",
     "home.challenges": "D\xE9fis",
     "home.challengesDetail": "Questions chronom\xE9tr\xE9es par plage",
-    "home.needStack": "Enregistre d\u2019abord ton chapelet.",
+    "home.needStack": "Enregistre d\u2019abord un chapelet.",
     "home.review": "Revoir mes erreurs",
     "home.reviewDetail": ({ n }) => `${n} ${pl("fr", n, "carte", "cartes")} \xE0 revoir`,
     "home.reviewNone": "Rien \xE0 revoir pour l\u2019instant.",
@@ -3513,7 +3549,7 @@ textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-sel
           h("button", { type: "button", class: "row row-link", onClick: () => openRestoreSheet(app) }, h("span", { class: "row-title" }, t("backup.restoreRow")), icon("chevronRight"))
         ]),
         group(t("settings.groupProgress"), [resetRow], hasProgress(progress) ? null : t("settings.nothingToReset")),
-        h("p", { class: "version" }, t("settings.version", { v: "2026-10-20 20:03" }))
+        h("p", { class: "version" }, t("settings.version", { v: "2026-10-20 20:41" }))
       )
     );
   }
@@ -4822,7 +4858,9 @@ textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-sel
   var PRACTICE_WINDOW = 20;
   var RIGHT_BEAT_MS = 240;
   var WRONG_BEAT_MS = 560;
-  var OUT_BEAT_MS = 800;
+  var OUT_BEAT_MS = 600;
+  var ENDING_MS = 1100;
+  var SUMMARY_GUARD_MS = 700;
   var COUNTDOWN_FROM = 3;
   var COUNTDOWN_STEP_MS = 750;
   var qs = null;
@@ -5024,7 +5062,7 @@ textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-sel
       },
       { render: false }
     );
-    qs.phase = "summary";
+    qs.phase = "ending";
     qs.summary = summarize(qs.answers);
     qs.result = {
       stars,
@@ -5036,10 +5074,15 @@ textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-sel
       previousStars: outcome.previous?.stars ?? null,
       opened: newlyOpened(before, app.state.progress)
     };
-    app.render({ top: true });
+    app.render({ keepScroll: true });
+    qs.timer = setTimeout(() => {
+      if (!qs || qs.phase !== "ending") return;
+      qs.phase = "summary";
+      app.render({ top: true });
+    }, ENDING_MS);
   }
   async function end(app) {
-    if (!qs) return;
+    if (!qs || qs.phase === "ending") return;
     if (qs.phase === "countdown") {
       leave2();
       app.back();
@@ -5101,9 +5144,11 @@ textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-sel
       const slot = answered ? revealCard(q.answer) : cardBack("lg");
       [left, right] = next ? [promptCard, slot] : [slot, promptCard];
     }
+    const mixed = (qs.session.level?.types?.length ?? 1) > 1;
     return h(
       "div",
       { class: "quiz-prompt" },
+      mixed && q.type !== "nb" && h("span", { class: "type-pill" }, q.type === "c2p" ? t("q.findPosition") : t("q.findCard")),
       q.type === "nb" && h(
         "span",
         { class: `dir-pill ${q.direction}` },
@@ -5158,7 +5203,7 @@ textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-sel
         type: "button",
         class: cls.join(" "),
         "aria-label": typeof value === "number" ? t("q.posAria", { n: value }) : cardName(value),
-        disabled: answered && !qs.awaitTap,
+        disabled: qs.phase === "ending" || answered && !qs.awaitTap,
         onClick: (e) => {
           if (answered) return;
           e.stopPropagation();
@@ -5172,17 +5217,19 @@ textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-sel
   }
   var usesKeypad = (app, q) => q.type === "c2p" && app.state.settings.positionInput === "keypad";
   var padRange = () => qs.session.range ?? { from: 1, to: 52 };
-  function padCanReach(prefix, r) {
-    for (let p = r.from; p <= r.to; p++) if (String(p).startsWith(prefix)) return true;
-    return false;
+  function padForms(r) {
+    const forms = [];
+    for (let p = r.from; p <= r.to; p++) {
+      forms.push(String(p));
+      if (p <= 9) forms.push(`0${p}`);
+    }
+    return forms;
   }
-  var padIsAnswer = (text, r) => text !== "" && Number(text) >= r.from && Number(text) <= r.to;
-  function padCanGrow(text, r) {
-    for (let p = r.from; p <= r.to; p++) if (String(p).length > text.length && String(p).startsWith(text)) return true;
-    return false;
-  }
+  var padCanReach = (prefix, r) => padForms(r).some((f) => f.startsWith(prefix));
+  var padIsAnswer = (text, r) => text !== "" && padForms(r).includes(text);
+  var padCanGrow = (text, r) => padForms(r).some((f) => f.length > text.length && f.startsWith(text));
   function padPress(app, key) {
-    if (!qs || qs.state !== "asking") return;
+    if (!qs || qs.phase !== "question" || qs.state !== "asking") return;
     const r = padRange();
     if (key === "back") {
       qs.typed = qs.typed.slice(0, -1);
@@ -5196,7 +5243,8 @@ textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-sel
     const next = qs.typed + key;
     if (!padCanReach(next, r)) return;
     qs.typed = next;
-    if (padIsAnswer(next, r) && !padCanGrow(next, r)) {
+    const typedRight = padIsAnswer(next, r) && Number(next) === qs.question.answer;
+    if (typedRight || padIsAnswer(next, r) && !padCanGrow(next, r)) {
       answer(app, null, Number(next));
       return;
     }
@@ -5204,7 +5252,7 @@ textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-sel
   }
   function keypad(app) {
     const r = padRange();
-    const asking = qs.state === "asking";
+    const asking = qs.state === "asking" && qs.phase === "question";
     const last = qs.answers.at(-1);
     const enabled = (k) => asking && (k === "back" ? qs.typed.length > 0 : k === "ok" ? padIsAnswer(qs.typed, r) : padCanReach(qs.typed + k, r));
     const key = (k, content, cls = "", label2 = null) => h(
@@ -5221,11 +5269,17 @@ textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-sel
       },
       content
     );
-    const wrongTyped = !asking && last && !last.correct && !last.timedOut;
+    const wrongTyped = !asking && qs.state === "answered" && last && !last.correct && !last.timedOut;
+    const waiting = asking && padIsAnswer(qs.typed, r) && padCanGrow(qs.typed, r);
     return h(
       "div",
       { class: "keypad-wrap" },
-      h("div", { class: "pad-display", "aria-live": "polite" }, wrongTyped && h("s", null, `#${last.choice}`)),
+      h(
+        "div",
+        { class: waiting ? "pad-display hint" : "pad-display", "aria-live": "polite" },
+        wrongTyped && h("s", null, `#${last.choice}`),
+        waiting && t("q.padHint", { n: Number(qs.typed) })
+      ),
       h(
         "div",
         { class: "keypad" },
@@ -5312,7 +5366,8 @@ textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-sel
         feedback(q),
         usesKeypad(app, q) ? keypad(app) : h("div", { class: `answers cols-${cols} ${typeof q.answer === "number" ? "kind-pos" : "kind-card"}` }, q.choices.map((v, i) => choiceButton(app, q, v, i)))
       ),
-      challenge && answered && h("div", { class: `ch-flash ${qs.lastEvent}`, "aria-hidden": "true" })
+      challenge && answered && qs.phase !== "ending" && h("div", { class: `ch-flash ${qs.lastEvent}`, "aria-hidden": "true" }),
+      qs.phase === "ending" && h("div", { class: "ch-ending", role: "status" }, h("span", { class: "ch-ending-text" }, qs.result.reason === "mistakes" ? t("q.outOfHearts") : t("q.timesUpBig")))
     );
   }
   function missedGroup(s) {
@@ -5339,11 +5394,11 @@ textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-sel
       h(
         "div",
         { class: "dock-inner dock-actions" },
-        h("button", { type: "button", class: "btn btn-quiet btn-grow", onClick: () => {
+        h("button", { type: "button", class: "btn btn-quiet btn-grow", disabled: !qs.armed, onClick: () => {
           leave2();
           app.back();
         } }, t("common.done")),
-        h("button", { type: "button", class: "btn btn-primary btn-grow", onClick: () => restart(app) }, again2)
+        h("button", { type: "button", class: "btn btn-primary btn-grow", disabled: !qs.armed, onClick: () => restart(app) }, again2)
       )
     );
   }
@@ -5438,6 +5493,17 @@ textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-sel
     return questionView(app);
   }
   function afterRender3(app) {
+    if (qs?.phase === "summary" && !qs.armed && !qs.arming) {
+      qs.arming = true;
+      setTimeout(() => {
+        if (!qs || qs.phase !== "summary") return;
+        qs.armed = true;
+        document.querySelectorAll(".dock .btn").forEach((b) => {
+          b.disabled = false;
+        });
+      }, SUMMARY_GUARD_MS);
+      return;
+    }
     if (qs?.phase === "countdown") {
       clearTimeout(qs.timer);
       qs.timer = setTimeout(() => {
