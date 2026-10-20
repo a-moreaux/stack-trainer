@@ -1,4 +1,11 @@
 <!doctype html>
+<!--
+  Card Stack Trainer's production bundle.
+
+  The app is intentionally self-contained so the repository can be served by
+  any static host. CSS section headings and src/... JavaScript markers document
+  the original module boundaries; keep those markers when maintaining the file.
+-->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -1059,8 +1066,10 @@ textarea, input[type="text"], .backup-text { -webkit-user-select: text; user-sel
 </style>
 </head>
 <body>
+<!-- Screen contents are rendered into this application root. -->
 <div id="app"></div>
 <noscript>Card Stack Trainer needs JavaScript turned on.</noscript>
+<!-- Dependency-free application bundle; logical source modules are marked below. -->
 <script>(() => {
   var __defProp = Object.defineProperty;
   var __export = (target, all) => {
